@@ -6,7 +6,7 @@
     "axios": "^0.18.0",
     "dompurify": "^1.0.6",
     "fs": "^0.0.1-security",
-    "react": "^16.4.1",
+    "react": "^16.7.0-alpha",
     "react-dnd": "^5.0.0",
     "react-dnd-html5-backend": "^5.0.1",
     "react-dom": "^16.4.1",
