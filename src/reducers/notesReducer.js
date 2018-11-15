@@ -3,7 +3,7 @@ import {
   RECEIVE_NOTE,
   REARRANGE_NOTES,
   RECEIVE_TAGS
-} from '../../actions/index.js';
+} from '../actions/index.js';
 
 const byIdReducer = (state = {}, action) => {
   switch (action.type) {
