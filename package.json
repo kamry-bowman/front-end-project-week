@@ -5,6 +5,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "dompurify": "^1.0.6",
+    "eslint-plugin-react-hooks": "^0.0.0",
     "fs": "^0.0.1-security",
     "react": "^16.7.0-alpha",
     "react-dnd": "^5.0.0",

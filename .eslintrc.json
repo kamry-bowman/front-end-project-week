@@ -1,19 +1,5 @@
 {
-    "env": {
-        "browser": true,
-        "es6": true
-    },
-    "extends": "react-app",
-    "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        },
-        "ecmaVersion": 2018,
-        "sourceType": "module"
-    },
-    "plugins": [
-        "react"
-    ],
+    "extends": "airbnb",
     "rules": {
         "indent": [
             "error",
@@ -26,6 +12,31 @@
         "semi": [
             "error",
             "always"
-        ]
+        ],
+        "linebreak-style": 0,
+        "import/no-named-as-default": 0,
+        "import/no-named-as-default-member": 0,
+        "import/no-extraneous-dependencies": 0,
+        "react/jsx-filename-extension": 0,
+        "react/jsx-one-expression-per-line": ["warn", { "allow": "single-child" }],
+        "react/destructuring-assignment": 0,
+        "arrow-body-style": 0,
+        "no-unused-vars": [1 , { "ignoreRestSiblings": true, "argsIgnorePattern": "^_" }],
+        "no-shadow": ["warn", {"builtinGlobals": false, "hoist": "functions", "allow": ["resolve", "reject", "done", "cb", "_resultsForDebug"]}],
+        "react-hooks/rules-of-hooks": "error"
+      },
+      "plugins": [
+          "react-hooks"
+      ],
+    "env": {
+        "browser": true,
+        "es6": true
+    },
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 2018,
+        "sourceType": "module"
     }
 }
