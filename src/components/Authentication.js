@@ -1,24 +1,28 @@
 import React, { useState, useEffect } from 'react';
-import connect from 'redux-react-dom';
+import connect from 'react-redux';
+import Login from './Login';
 import { authenticate, register, login } from '../actions/index';
-import axios from 'axios';
 
-function Authentication(Component) {
-  useEffect(() => {
-    props.authenticate();
-    }
+function withAuthentication(Component) {
+  const AuthenticatedComponent = (props) => {
+    useEffect(() => {
+      props.authenticate();
+    });
 
-  return (props) => {
-    if (props.user) {
-      return <Component {...props} user={props.user} />;
-    } else {
-      return <Login login={props.login} register={register} />
+    if (!props.user) {
+      return <Login login={props.login} register={register} />;
     }
+    return <Component {...props} user={props.user} />;
   };
+
+  const mapStateToProps = ({ auth }) => {
+    return { auth };
+  };
+
+  return connect(
+    mapStateToProps,
+    { authenticate, register, login },
+  )(AuthenticatedComponent);
 }
 
-const mapStateToProps = (state) => {
-  return { state.auth };
-  }
-
-export default connect(mapStateToProps, { authenticate, register, login })(Authentication);
+export default withAuthentication;
