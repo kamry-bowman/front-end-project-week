@@ -63,12 +63,10 @@ class App extends Component {
 
   render() {
     return (
-      <Authentication>
         <StyledApp>
           <SideBar exportCSV={this.exportCSV} />
           <MainPane {...this.props} />
         </StyledApp>
-      </Authentication>
     );
   }
 }
