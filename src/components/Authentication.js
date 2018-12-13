@@ -6,7 +6,7 @@ import { authenticate, register, login } from '../actions/index';
 function Authentication(props) {
   useEffect(() => {
     props.authenticate();
-  });
+  }, [props.user]);
 
   if (!props.user) {
     return <Login login={props.login} register={props.register} />;

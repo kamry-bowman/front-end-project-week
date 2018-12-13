@@ -1,12 +1,12 @@
-import axios from 'axios';
+import axios from '../utils/axiosInstance';
 
-export const START_FETCH = 'START_FETCH';
-export const RECEIVE_NOTES = 'RECEIVE_NOTES';
-export const RECEIVE_NOTE = 'RECEIVE_NOTE';
-export const REARRANGE_NOTES = 'REARRANGE_NOTES';
-export const RECEIVE_TAGS = 'RECEIVE_TAGS';
+export const START_FETCH = "START_FETCH";
+export const RECEIVE_NOTES = "RECEIVE_NOTES";
+export const RECEIVE_NOTE = "RECEIVE_NOTE";
+export const REARRANGE_NOTES = "REARRANGE_NOTES";
+export const RECEIVE_TAGS = "RECEIVE_TAGS";
 
-const url = process.env.REACT_APP_SERVER || 'http://localhost:8000';
+const url = process.env.REACT_APP_SERVER || "http://localhost:8000";
 
 export const fetchNotes = cb => dispatch => {
   return axios

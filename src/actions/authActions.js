@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from '../utils/axiosInstance';
 
 export const GET_AUTHENTICATE = 'GET_AUTHENTICATE';
 export const SET_USER = 'SET_USER';
@@ -20,7 +20,7 @@ export const login = ({ username, password }) => (dispatch) => {
       if (!res.data || !res.data.username) {
         return dispatch({ type: AUTH_ERROR, payload: 'User/password combination did not pass.' });
       }
-      sessionStorage.setItem('ln-user', res.data.username);
+      sessionStorage.setItem(sessionChip, res.data.username);
       return dispatch({ type: SET_USER, payload: res.data.username });
     })
     .catch((err) => {
