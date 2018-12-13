@@ -69,7 +69,6 @@ const getAllNotes = state => {
 };
 
 const getAllIds = state => state.allIds;
-const getNoteById = (state, id) =>
-  state.byId[id] || { textBody: '', title: '', tags: [] };
+const getNoteById = (state, id) => state.byId[id] || { textBody: '', title: '', tags: [] };
 
-export { byIdReducer, allIdsReducer, allTagsReducer, getAllNotes, getAllIds };
+export { byIdReducer, allIdsReducer, allTagsReducer, getAllNotes, getAllIds, getNoteById };
