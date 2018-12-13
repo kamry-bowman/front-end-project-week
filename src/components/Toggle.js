@@ -51,8 +51,8 @@ const Slider = styled.div`
 function Toggle(props) {
   const [toggled, setToggled] = useState(false);
   const handleUpdate = (event) => {
-    console.log(event);
     setToggled(prevToggled => !prevToggled);
+    props.handleToggle();
   };
 
   return (

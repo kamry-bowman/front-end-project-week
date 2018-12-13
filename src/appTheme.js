@@ -141,5 +141,9 @@ export default {
       iconHeight: '25px',
       iconContainerHeight: '34px',
     },
+    login: {
+      width: '80%',
+      
+    }
   },
 };

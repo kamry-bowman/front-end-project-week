@@ -14,14 +14,14 @@ export const authenticate = () => (dispatch) => {
   }
 };
 
-export const login = (username, password) => (dispatch) => {
-  return axios(`${url}/auth/login`, { username, password })
+export const login = ({ username, password }) => (dispatch) => {
+  return axios.post(`${url}/auth/login`, { username, password })
     .then((res) => {
-      if (!res.user) {
+      if (!res.data || !res.data.username) {
         return dispatch({ type: AUTH_ERROR, payload: 'User/password combination did not pass.' });
       }
-      sessionStorage.setItem(sessionChip);
-      return dispatch({ type: SET_USER, payload: res.user });
+      sessionStorage.setItem('ln-user', res.data.username);
+      return dispatch({ type: SET_USER, payload: res.data.username });
     })
     .catch((err) => {
       console.log(err);
@@ -29,8 +29,8 @@ export const login = (username, password) => (dispatch) => {
     });
 };
 
-export const register = (username, password) => (dispatch) => {
-  return axios(`${url}/auth/register`, { username, password })
+export const register = ({ username, password }) => (dispatch) => {
+  return axios.post(`${url}/auth/register`, { username, password })
     .then((res) => {
 
 

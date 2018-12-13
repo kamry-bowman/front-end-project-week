@@ -9,15 +9,15 @@ function Authentication(props) {
   });
 
   if (!props.user) {
-    return <Login login={props.login} register={register} />;
+    return <Login login={props.login} register={props.register} />;
   }
-
+  console.log(props.children);
   return props.children;
 }
 
 const mapStateToProps = ({ auth }) => {
   console.log(auth);
-  return { auth };
+  return auth;
 };
 
 export default connect(mapStateToProps, { authenticate, register, login })(Authentication);
