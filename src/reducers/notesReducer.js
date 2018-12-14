@@ -11,7 +11,7 @@ const byIdReducer = (state = {}, action) => {
     const { payload } = action;
     return payload.reduce(
       (accum, note) => ({ ...accum, [note.id]: note }),
-      {}
+      {},
     );
   case RECEIVE_NOTE: {
     const { payload: note } = action;

@@ -36,6 +36,14 @@ class App extends Component {
     this.props.fetchNotes();
   }
 
+  componentDidUpdate(prevProps) {
+    console.log("updating!!!");
+    if (this.props.user !== prevProps.user) {
+      return this.props.fetchNotes();
+    }
+    return; 
+  }
+
   exportCSV() {
     // Prepare string
     const { notes: allNotes } = this.props;
@@ -73,7 +81,7 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = state => ({ notes: getAllNotes(state) });
+const mapStateToProps = state => ({ notes: getAllNotes(state), ...state.auth });
 export default withRouter(DragDropContext(HTML5Backend)(connect(
   mapStateToProps,
   { fetchNotes }

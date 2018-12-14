@@ -1,20 +1,22 @@
-import React from 'react';
-import { NavLink, Route } from 'react-router-dom';
-import styled from 'styled-components';
-import Button from './Button';
-import breakpoints from '../breakpoints';
+import React from "react";
+import { NavLink, Route } from "react-router-dom";
+import { connect } from "react-redux";
+import { logout, login } from "../actions";
+import styled from "styled-components";
+import Button from "./Button";
+import breakpoints from "../breakpoints";
 
-const SideBar = styled.div`
-  width: ${ props => props.theme.dimensions.sideBar.width };
-  padding: ${ props => props.theme.dimensions.sideBar.padding };
-  background-color: ${ props => props.theme.color.sideBarBG };
-  color: ${ props => props.theme.color.headingText };
-  border-width: ${ props => props.theme.dimensions.sideBar.borderWidth };
-  border-color: ${ props => props.theme.color.border };
+const StyledSideBar = styled.div`
+  width: ${props => props.theme.dimensions.sideBar.width};
+  padding: ${props => props.theme.dimensions.sideBar.padding};
+  background-color: ${props => props.theme.color.sideBarBG};
+  color: ${props => props.theme.color.headingText};
+  border-width: ${props => props.theme.dimensions.sideBar.borderWidth};
+  border-color: ${props => props.theme.color.border};
   border-style: solid;
   border-right: 0;
   
-  @media(max-width: ${ breakpoints.verticalNav }) {
+  @media(max-width: ${breakpoints.verticalNav}) {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -23,12 +25,12 @@ const SideBar = styled.div`
 
   h1 {
     width: 100%;
-    font-family: ${ props => props.theme.font.heading};
-    font-size: ${ props => props.theme.dimensions.sideBar.headingFontSize};
-    margin: ${ props => props.theme.dimensions.sideBar.headingMargin };
-    line-height: ${ props => props.theme.dimensions.sideBar.headingLineHeight };
+    font-family: ${props => props.theme.font.heading};
+    font-size: ${props => props.theme.dimensions.sideBar.headingFontSize};
+    margin: ${props => props.theme.dimensions.sideBar.headingMargin};
+    line-height: ${props => props.theme.dimensions.sideBar.headingLineHeight};
 
-    @media(max-width: ${ breakpoints.verticalNav }) {
+    @media(max-width: ${breakpoints.verticalNav}) {
       text-align: center;
   }
 
@@ -39,9 +41,9 @@ const SideBar = styled.div`
   }
 `;
 
-export default ({ exportCSV }) => {
+const SideBar = ({ exportCSV, logout, login, user }) => {
   return (
-    <SideBar>
+    <StyledSideBar>
       <h1>Lambda Notes</h1>
       <NavLink exact to="/">
         <Button>View Your Notes</Button>
@@ -49,9 +51,21 @@ export default ({ exportCSV }) => {
       <NavLink exact to="/add/">
         <Button>+ Create New Note</Button>
       </NavLink>
-      <Route exact path='/' render={() => (
-        <Button onClick={ exportCSV }>Export to CSV</Button>
-      )} />
-    </SideBar>
+      <Route
+        exact
+        path="/"
+        render={() => <Button onClick={exportCSV}>Export to CSV</Button>}
+      />
+      {user ? (
+        <Button onClick={logout} danger >Logout</Button>
+      ) : (
+        <Button onClick={login}>Login</Button>
+      )}
+    </StyledSideBar>
   );
 };
+const mapStateToProps = state => state.auth;
+export default connect(
+  mapStateToProps,
+  { logout, login }
+)(SideBar);
