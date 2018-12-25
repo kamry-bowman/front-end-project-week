@@ -9,7 +9,8 @@ const url = process.env.REACT_APP_SERVER || 'http://localhost:8000';
 const sessionChip = 'lambdaNotesUser';
 
 export const authenticate = () => (dispatch) => {
-  return axios.get(`${url}/auth/user`)
+  return axios
+    .get(`${url}/auth/user`)
     .then((res) => {
       if (res.data && res.data.username) {
         return dispatch({ type: SET_USER, payload: res.data.username });
@@ -21,7 +22,8 @@ export const authenticate = () => (dispatch) => {
 };
 
 export const login = ({ username, password }) => (dispatch) => {
-  return axios.post(`${url}/auth/login`, { username, password })
+  return axios
+    .post(`${url}/auth/login`, { username, password })
     .then((res) => {
       if (!res.data || !res.data.username) {
         return dispatch({ type: AUTH_ERROR, payload: 'User/password combination did not pass.' });
@@ -36,19 +38,18 @@ export const login = ({ username, password }) => (dispatch) => {
 };
 
 export const register = ({ username, password }) => (dispatch) => {
-  return axios.post(`${url}/auth/register`, { username, password })
-    .then((res) => {
-
-
-    })
+  return axios
+    .post(`${url}/auth/register`, { username, password })
+    .then((res) => {})
     .catch((err) => {
       console.log(err);
-      return dispatch({ type: AUTH_ERROR, payload: 'Registration failed' });
+      return dispatch({ type: AUTH_ERROR, payload: 'Registration failed.' });
     });
 };
 
 export const logout = () => (dispatch) => {
-  return axios.post(`${url}/auth/logout`)
+  return axios
+    .post(`${url}/auth/logout`)
     .then((res) => {
       dispatch({ type: RECEIVE_NOTES, payload: [] });
       dispatch({ type: SET_USER, payload: null });

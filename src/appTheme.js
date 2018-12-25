@@ -39,6 +39,7 @@ export default {
     registerToggle: teal,
     loginLogo: scooterBlue,
     loginLogoBG: seaYellow,
+    dangerText: monzaRed,
   },
   breakpoints: {
     twoCol: '900px',

@@ -78,7 +78,7 @@ const StyledLogin = styled.div`
 
   div.login {
     width: 50%;
-    padding: 8%;
+    padding: 6%;
     border-radius: 100%;
     background-color: white;
 
@@ -103,7 +103,7 @@ const StyledLogin = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: 40px;
+    padding: 10px;
   }
 
   .form--row {
@@ -115,6 +115,11 @@ const StyledLogin = styled.div`
     label > * {
       margin: 0 10px;
     }
+  }
+
+  .error {
+    color: ${props => props.theme.color.dangerText};
+    text-align: center;
   }
 
 `;
@@ -183,15 +188,14 @@ const Login = (props) => {
               </label>
             </div>
             <div className="form--row">
-
-              Login
+              {'Login'}
               <Toggle handleToggle={handleToggle} />
-
-              Register
+              {'Register'}
             </div>
             <div className="form--row">
               <Button type="submit">Submit</Button>
             </div>
+            <div className="form--row error">{props.error || ''}</div>
           </form>
         </div>
       </div>
