@@ -16,6 +16,7 @@ let StyledApp = styled.div`
   display: flex;
   justify-content: center;
   font-family: ${props => props.theme.font.body};
+  background-color: ${props => props.theme.color.gutterBG};
 
   @media(max-width: ${ breakpoints.verticalNav }) {
     flex-wrap: wrap;

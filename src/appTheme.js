@@ -1,25 +1,22 @@
-
-
 const tundoraGray = '#4A4A4A';
 const white = '#FFFFFF';
-const alto =  '#D8D8D8';
+const alto = '#D8D8D8';
 const concreteWhite = '#F3F3F3';
 const scooterBlue = '#2BC1C4';
 const monzaRed = '#D0021B';
 const dustyGray = '#979797';
 // const indigoBlue = '#3E6ACE';
-// const seaYellow = '#FFAE0C';
-// const neonCarrot = '#FF9238';
+const seaYellow = 'hsla(40, 100%, 67%, 1)';
+const neonCarrot = '#FF9238';
 const teal = '#008A8A';
-
-
 
 export default {
   font: {
-    heading: "'Roboto', sans-serif",
-    body: "'Raleway', sans-serif",
+    heading: '\'Roboto\', sans-serif',
+    body: '\'Raleway\', sans-serif',
   },
   color: {
+    gutterBG: seaYellow,
     headingText: tundoraGray,
     generalText: tundoraGray,
     modalBG: tundoraGray,
@@ -38,6 +35,10 @@ export default {
     tagBG: teal,
     tagDisplayBG: alto,
     loginBG: scooterBlue,
+    loginToggle: neonCarrot,
+    registerToggle: teal,
+    loginLogo: scooterBlue,
+    loginLogoBG: seaYellow,
   },
   breakpoints: {
     twoCol: '900px',
@@ -144,7 +145,7 @@ export default {
     },
     login: {
       width: '80%',
-      headingFontSize: '50px',
+      headingFontSize: '3rem',
     },
   },
 };

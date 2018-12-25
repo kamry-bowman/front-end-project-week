@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import Toggle from './Toggle';
+import Button from './Button';
 
 const StyledLogin = styled.div`
   position: relative
@@ -11,10 +12,6 @@ const StyledLogin = styled.div`
   align-items: center;
   flex-direction: column;
   font-family: ${props => props.theme.font.body}
-
-  /* * {
-    border: 1px solid red;
-  } */
 
   div.decorator {
     position: absolute;
@@ -28,8 +25,41 @@ const StyledLogin = styled.div`
     z-index: -1;
   }
 
+  .main-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+  }
+
+  .header {
+    height: 100%;
+    width: 50%;
+    z-index: 1;
+    order: 1;
+    text-align: end;
+    
+    h1 {
+      white-space: pre-line;
+      font-size: 6rem;
+      color: ${props => props.theme.color.loginLogo};
+      background-color: ${props => props.theme.color.loginLogoBG};
+      display: inline-block;
+      border-radius:  150px 0 150px 150px; 
+      text-align: end;
+      margin: 0;
+      padding-top: 5%;
+      padding-left: 10%;
+      padding-right: 5%;
+      padding-bottom: 10%;
+    }
+  }
+
   div.login {
-    padding: 100px;
+    width: 50%;
+    padding: 10%;
     border-radius: 100%;
     background-color: white;
 
@@ -38,7 +68,7 @@ const StyledLogin = styled.div`
   h1 {
     font-family: ${props => props.theme.font.heading};
     font-size: ${props => props.theme.dimensions.login.headingFontSize};
-    margin: 30px;
+    margin: 5%;
     text-align: center;
   }
   
@@ -52,6 +82,13 @@ const StyledLogin = styled.div`
 
   .form--row {
     margin: 25px 0px;
+    & > * {
+      vertical-align: middle;
+    }
+
+    label > * {
+      margin: 0 10px;
+    }
   }
 
 `;
@@ -88,44 +125,49 @@ const Login = (props) => {
   return (
     <StyledLogin>
       <div className="decorator" />
-      <div className="login">
-        <h1>{isLogin ? 'Login' : 'Register'}</h1>
-        <form onSubmit={submit}>
-          <div className="form--row">
-            <label htmlFor="username">
-              {'Username'}
-              <input
-                type="text"
-                id="username"
-                name="username"
-                value={username}
-                onChange={handleInput}
-              />
-            </label>
-          </div>
-          <div className="form--row">
-            <label htmlFor="password">
-              {'Password'}
-              <input
-                type="text"
-                id="password"
-                name="password"
-                value={password}
-                onChange={handleInput}
-              />
-            </label>
-          </div>
-          <div className="form--row">
+      <div className="main-content">
+        <div className="header">
+          <h1>{'Lambda\nNotes'}</h1>
+        </div>
+        <div className="login">
+          <h1>{isLogin ? 'Login' : 'Register'}</h1>
+          <form onSubmit={submit}>
+            <div className="form--row">
+              <label htmlFor="username">
+                {'Username'}
+                <input
+                  type="text"
+                  id="username"
+                  name="username"
+                  value={username}
+                  onChange={handleInput}
+                />
+              </label>
+            </div>
+            <div className="form--row">
+              <label htmlFor="password">
+                {'Password'}
+                <input
+                  type="text"
+                  id="password"
+                  name="password"
+                  value={password}
+                  onChange={handleInput}
+                />
+              </label>
+            </div>
+            <div className="form--row">
 
-            Login
-            <Toggle handleToggle={handleToggle} />
+              Login
+              <Toggle handleToggle={handleToggle} />
 
-            Register
-          </div>
-          <div className="form--row">
-            <button type="submit">Submit</button>
-          </div>
-        </form>
+              Register
+            </div>
+            <div className="form--row">
+              <Button type="submit">Submit</Button>
+            </div>
+          </form>
+        </div>
       </div>
     </StyledLogin>
   );

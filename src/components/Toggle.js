@@ -4,6 +4,7 @@ import styled from 'styled-components';
 const Container = styled.div`
   width: 50px;
   height: 20px;
+  margin: 0 10px;
   position: relative;
   display: inline-block;
 `;
@@ -15,7 +16,6 @@ const Input = styled.input`
   width: 100%;
   height: 100%;
   -webkit-appearance: none;
-  
 `;
 
 const Switch = styled.div`
@@ -26,11 +26,11 @@ const Switch = styled.div`
   height: 100%;
   display: flex;
   align-items: center;
-  background-color: green;
+  background-color: ${props => props.theme.color.loginToggle};
   transition: background-color 300ms;
   border-radius: 10px;
   &.toggled {
-    background-color: orange;
+    background-color: ${props => props.theme.color.registerToggle};
   }
 `;
 
@@ -42,7 +42,7 @@ const Slider = styled.div`
   border-radius: 16px;
   background-color: white;
   transition: transform 300ms;
-  
+
   &.toggled {
     transform: translateX(30px);
   }
