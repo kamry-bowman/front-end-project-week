@@ -7,6 +7,6 @@ export default combineReducers({
   byId: byIdReducer,
   allIds: allIdsReducer,
   allTags: allTagsReducer,
-  auth: authReducer
+  auth: authReducer,
 });
 

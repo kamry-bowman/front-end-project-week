@@ -3,7 +3,7 @@ import {
   RECEIVE_NOTE,
   REARRANGE_NOTES,
   RECEIVE_TAGS
-} from '../../actions/index.js';
+} from '../actions/index.js';
 
 const byIdReducer = (state = {}, action) => {
   switch (action.type) {
@@ -11,7 +11,7 @@ const byIdReducer = (state = {}, action) => {
     const { payload } = action;
     return payload.reduce(
       (accum, note) => ({ ...accum, [note.id]: note }),
-      {}
+      {},
     );
   case RECEIVE_NOTE: {
     const { payload: note } = action;
@@ -69,7 +69,6 @@ const getAllNotes = state => {
 };
 
 const getAllIds = state => state.allIds;
-const getNoteById = (state, id) =>
-  state.byId[id] || { textBody: '', title: '', tags: [] };
+const getNoteById = (state, id) => state.byId[id] || { textBody: '', title: '', tags: [] };
 
-export { byIdReducer, allIdsReducer, allTagsReducer, getAllNotes, getAllIds };
+export { byIdReducer, allIdsReducer, allTagsReducer, getAllNotes, getAllIds, getNoteById };
