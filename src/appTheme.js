@@ -37,6 +37,7 @@ export default {
     border: dustyGray,
     tagBG: teal,
     tagDisplayBG: alto,
+    loginBG: scooterBlue,
   },
   breakpoints: {
     twoCol: '900px',
@@ -143,7 +144,7 @@ export default {
     },
     login: {
       width: '80%',
-      
-    }
+      headingFontSize: '50px',
+    },
   },
 };
