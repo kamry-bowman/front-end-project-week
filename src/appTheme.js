@@ -145,7 +145,12 @@ export default {
     },
     login: {
       width: '80%',
-      headingFontSize: '3rem',
+      subheading: '2.5rem',
+      heading: '6rem',
+      oneCol: {
+        heading: '4rem',
+        subheading: '2rem',
+      },
     },
   },
 };
