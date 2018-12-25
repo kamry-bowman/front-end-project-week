@@ -13,8 +13,6 @@ const StyledLogin = styled.div`
   flex-direction: column;
   font-family: ${props => props.theme.font.body}
 
-
-
   div.decorator {
     position: absolute;
     top: 0;
@@ -121,7 +119,6 @@ const StyledLogin = styled.div`
     color: ${props => props.theme.color.dangerText};
     text-align: center;
   }
-
 `;
 
 const Login = (props) => {
@@ -142,7 +139,8 @@ const Login = (props) => {
 
   const handleToggle = () => {
     setForm(prevState => ({
-      ...prevState,
+      username: '',
+      password: '',
       isLogin: !prevState.isLogin,
     }));
   };
@@ -179,7 +177,7 @@ const Login = (props) => {
               <label htmlFor="password">
                 {'Password'}
                 <input
-                  type="text"
+                  type="password"
                   id="password"
                   name="password"
                   value={password}
