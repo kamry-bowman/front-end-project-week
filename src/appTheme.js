@@ -56,6 +56,7 @@ export default {
       height: '42px',
       fontSize: '16px',
       margin: '10px 0px',
+      padding: '0 10px',
       borderRadius: '1px',
       borderWidth: '1px',
     },

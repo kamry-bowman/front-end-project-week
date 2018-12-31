@@ -1,8 +1,15 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import breakpoints from '../breakpoints';
+import googleLogo from '../assets/btn_google.svg';
 import Toggle from './Toggle';
 import Button from './Button';
+
+const googleRoot = process.env.NODE_ENV === 'production'
+  ? 'https://kam-ln-api.herokuapp.com/'
+  : 'http://localhost:8000';
+
+const googleUrl = `${googleRoot}/auth/google`;
 
 const StyledLogin = styled.div`
   position: relative
@@ -104,8 +111,8 @@ const StyledLogin = styled.div`
     padding: 10px;
   }
 
-  .form--row {
-    margin: 25px 0px;
+  .form__row {
+    margin: 15px 0px;
     & > * {
       vertical-align: middle;
     }
@@ -113,6 +120,17 @@ const StyledLogin = styled.div`
     label > * {
       margin: 0 10px;
     }
+  }
+
+  .form__row--buttons {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .google-logo {
+    margin: 0 10px; 
   }
 
   .error {
@@ -151,6 +169,10 @@ const Login = (props) => {
     func({ username, password });
   };
 
+  const googleLogin = (event) => {
+    window.location.replace(googleUrl);
+  };
+
   return (
     <StyledLogin>
       <div className="decorator" />
@@ -161,7 +183,7 @@ const Login = (props) => {
         <div className="login">
           <h1>{isLogin ? 'Login' : 'Register'}</h1>
           <form onSubmit={submit}>
-            <div className="form--row">
+            <div className="form__row">
               <label htmlFor="username">
                 {'Username'}
                 <input
@@ -173,7 +195,7 @@ const Login = (props) => {
                 />
               </label>
             </div>
-            <div className="form--row">
+            <div className="form__row">
               <label htmlFor="password">
                 {'Password'}
                 <input
@@ -185,15 +207,25 @@ const Login = (props) => {
                 />
               </label>
             </div>
-            <div className="form--row">
+            <div className="form__row">
               {'Login'}
               <Toggle handleToggle={handleToggle} />
               {'Register'}
             </div>
-            <div className="form--row">
+            <div className="form__row form__row--buttons">
               <Button type="submit">Submit</Button>
+              {form.isLogin ? (
+                <Button type="button" onClick={googleLogin}>
+                  {'Sign in with Google'}
+                  <div className="google-logo">
+                    <img alt="" src={googleLogo} />
+                  </div>
+                </Button>
+              ) : (
+                undefined
+              )}
             </div>
-            <div className="form--row error">{props.error || ''}</div>
+            <div className="form__row error">{props.error || ''}</div>
           </form>
         </div>
       </div>

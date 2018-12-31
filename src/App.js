@@ -25,6 +25,10 @@ const StyledApp = styled.div`
   * {
     box-sizing: border-box;
   }
+
+  a {
+    text-decoration: none;
+  }
 `;
 
 class App extends Component {
