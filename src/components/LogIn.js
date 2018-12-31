@@ -6,7 +6,7 @@ import Toggle from './Toggle';
 import Button from './Button';
 
 const googleRoot = process.env.NODE_ENV === 'production'
-  ? 'https://kam-ln-api.herokuapp.com/'
+  ? 'https://kam-ln-api.herokuapp.com'
   : 'http://localhost:8000';
 
 const googleUrl = `${googleRoot}/auth/google`;
