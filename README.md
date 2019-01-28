@@ -1,6 +1,6 @@
 # Lambda Notes Front End
 
-The Lambda Notes web applciation was built out as part of my full stack web development application at Lambda School. We were given design files ([seen here](front-end-project-designs)), and everything else was up to us. I relished the opportunity to get as close to pixel perfect as I could, and got pretty darn close if I say so myself.
+The Lambda Notes web application was built out as part of my full stack web development application at Lambda School. We were given design files ([seen here](front-end-project-designs)), and everything else was up to us. I relished the opportunity to get as close to pixel perfect as I could, and got pretty darn close if I say so myself.
 
 ## Site
 
