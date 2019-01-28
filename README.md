@@ -1,10 +1,10 @@
 # Lambda Notes Front End
 
-The Lambda Notes web applciation was built out as part of my full stack web development application at Lambda School. We were given design files ([front-end-project-designs](seen here)), and everything else was up to us. I relished the opportunity to get as close to pixel perfect as I could, and got pretty darn close if I say so myself.
+The Lambda Notes web applciation was built out as part of my full stack web development application at Lambda School. We were given design files ([seen here](front-end-project-designs)), and everything else was up to us. I relished the opportunity to get as close to pixel perfect as I could, and got pretty darn close if I say so myself.
 
 ## Site
 
-The site is currently viewable at [https://kam-lambda-notes.netlify.com/]. You can log in as "user1" with password "1234" to try out a demo account, or create your own account!
+The site is currently viewable [here](https://kam-lambda-notes.netlify.com/). You can log in as "user1" with password "1234" to try out a demo account, or create your own account!
 
 ## Features
 
